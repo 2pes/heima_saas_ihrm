@@ -4,6 +4,8 @@ import com.ihrm.common.entity.Result;
 import com.ihrm.common.entity.ResultCode;
 import com.ihrm.common.exception.CommonException;
 
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +20,18 @@ import javax.servlet.http.HttpServletResponse;
  */
 @ControllerAdvice
 public class BaseExceptionHandler {
+
+    /**
+     * 未授权
+     */
+
+    @ExceptionHandler(value = UnauthorizedException.class)
+    @ResponseBody
+    public Result error(HttpServletRequest request, HttpServletResponse response, AuthorizationException e) {
+        return new Result(ResultCode.UNAUTHORISE);
+    }
+    /*   */
+
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
