@@ -9,7 +9,7 @@ spring:
   #2.数据库连接池
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/final?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/heima_ihrm?useUnicode=true&characterEncoding=utf8
     username: jfinal
     password: jfinal
   #3.JPA

@@ -15,16 +15,17 @@ public class CompanyService {
 
     @Autowired
     private IdWorker idWorker;
+
     /**
      * 保存企业
-     *  1.配置idwork到工程
-     *  2.在service中注入idwork
-     *  3.通过idwork生成id
-     *  4.保存企业
+     * 1.配置idwork到工程
+     * 2.在service中注入idwork
+     * 3.通过idwork生成id
+     * 4.保存企业
      */
     public void add(Company company) {
         //基本属性的设置
-        String id = idWorker.nextId()+"";
+        String id = idWorker.nextId() + "";
         company.setId(id);
         //默认的状态
         company.setAuditState("0");//0：未审核，1：已审核
@@ -34,10 +35,10 @@ public class CompanyService {
 
     /**
      * 更新企业
-     *  1.参数：Company
-     *  2.根据id查询企业对象
-     *  3.设置修改的属性
-     *  4.调用dao完成更新
+     * 1.参数：Company
+     * 2.根据id查询企业对象
+     * 3.设置修改的属性
+     * 4.调用dao完成更新
      */
     public void update(Company company) {
         Company temp = companyDao.findById(company.getId()).get();

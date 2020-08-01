@@ -7,7 +7,7 @@ import lombok.Getter;
  * 自定义异常
  */
 @Getter
-public class CommonException extends Exception  {
+public class CommonException extends Exception {
 
     private ResultCode resultCode;
 
